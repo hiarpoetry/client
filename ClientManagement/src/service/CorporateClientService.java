@@ -2,11 +2,13 @@ package service;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.domex.model.CorporateClient;
+import com.domex.model.RegularClient;
 import com.domex.util.ClientDao;
 
 public class CorporateClientService implements ICorporateClient {
@@ -65,9 +67,35 @@ public class CorporateClientService implements ICorporateClient {
 	}
 
 	@Override
-	public ArrayList<CorporateClient> listCorporateClients() {
+	public ArrayList<CorporateClient> listCorporateClients() throws SQLException {
 		
-		return null;
+		String query = "select * from corporate_client ;";
+		statement = connection.createStatement(); //connect
+		ResultSet list = statement.executeQuery(query); //execute 
+		
+		ArrayList<CorporateClient> corpClientList = new ArrayList<CorporateClient>(); //store values
+		
+		//set attributes - regular client
+		while(list.next()){
+			CorporateClient corporateClient = new CorporateClient();
+			
+			corporateClient.setClientId(list.getInt("client_id"));
+			corporateClient.setBusinessName(list.getString("business_name"));
+			corporateClient.setAddressNo(list.getString("address_no"));
+			corporateClient.setLane(list.getString("lane"));
+			corporateClient.setStreet(list.getString("street"));
+			corporateClient.setTown(list.getString("town"));
+			corporateClient.setCity(list.getString("city"));
+			corporateClient.setEmail(list.getString("email"));
+			corporateClient.setContactNo(list.getString("contact_no"));
+			corporateClient.setProvince(list.getString("province"));
+			
+			corpClientList.add(corporateClient);
+			
+		}//end of while loop
+		
+		
+		return corpClientList; //return list
 	}
 
 	@Override
@@ -77,7 +105,19 @@ public class CorporateClientService implements ICorporateClient {
 	}
 
 	@Override
-	public void deleteCorporateClient(int clientId) {
+	public boolean deleteCorporateClient(int clientId) throws SQLException {
+		
+		String query = "delete from corporate_client where client_id =?";
+		
+		statement = connection.createStatement();
+		
+		PreparedStatement ps = connection.prepareStatement(query);
+		
+		ps.setInt(1, clientId);
+		
+		int result = ps.executeUpdate();
+		
+		return (result > 0);
 		
 
 	}

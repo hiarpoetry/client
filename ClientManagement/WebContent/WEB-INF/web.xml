@@ -1,25 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>ClientManagement</display-name>
-  
   <servlet>
-  	<servlet-name>addRegularClient</servlet-name>
-  	<servlet-class>AddRegularClientServlet</servlet-class>
+    <servlet-name>addRegularClient</servlet-name>
+    <servlet-class>AddRegularClientServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
-  	<servlet-name>addRegularClient</servlet-name>
-  	<url-pattern>/addRegularClient</url-pattern>
+    <servlet-name>addRegularClient</servlet-name>
+    <url-pattern>/addRegularClient</url-pattern>
   </servlet-mapping>
   
   <servlet>
-  	<servlet-name>addCorporateClient</servlet-name>
-  	<servlet-class>AddCorporateClientServlet</servlet-class>
+    <servlet-name>addCorporateClient</servlet-name>
+    <servlet-class>AddCorporateClientServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
-  	<servlet-name>addCorporateClient</servlet-name>
-  	<url-pattern>/addCorporateClient</url-pattern>
+    <servlet-name>addCorporateClient</servlet-name>
+    <url-pattern>/addCorporateClient</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>deleteCorporateClient</servlet-name>
+  	<servlet-class>DeleteCorporaterClientServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>deleteCorporateClient</servlet-name>
+  	<url-pattern>/deleteCorporateClient</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>deleteRegularClient</servlet-name>
+  	<servlet-class>DeleteRegularClientServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>deleteRegularClient</servlet-name>
+  	<url-pattern>/deleteRegularClient</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>updateCorporateClient</servlet-name>
+  	<servlet-class>UpdateCorporaterClientServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>updateCorporateClient</servlet-name>
+  	<url-pattern>/updateCorporateClient</url-pattern>
   </servlet-mapping>
   
 </web-app>

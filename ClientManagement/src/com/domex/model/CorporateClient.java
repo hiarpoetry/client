@@ -1,5 +1,8 @@
 package com.domex.model;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class CorporateClient {
 	
 	//attributes
@@ -8,15 +11,14 @@ public class CorporateClient {
 	private String email;
 	private String contactNo;
 	private String businessName;
-	private String extraEmail, extraContactNo;
+	private String extraEmail;
 	
 	//constructors
 	
 	public CorporateClient() {} //default construct
 	
 	public CorporateClient(int clientId, String addressNo, String lane, String street, String town, String city,
-			String province, String email, String contactNo, String businessName, String extraEmail,
-			String extraContactNo) {
+			String province, String email, String contactNo, String businessName, String extraEmail) {
 
 		this.clientId = clientId;
 		this.addressNo = addressNo;
@@ -28,7 +30,7 @@ public class CorporateClient {
 		this.email = email;
 		this.contactNo = contactNo;
 		this.businessName = businessName;
-		this.extraEmail = extraEmail;
+		
 		
 	}
 
@@ -186,7 +188,23 @@ public class CorporateClient {
 		this.extraEmail = extraEmail;
 	}
 
+	//Fetch results - 1 row
 	
+	public CorporateClient (ResultSet resultSet) throws SQLException {
+		
+		this.businessName = resultSet.getString("business_name");
+		this.addressNo = resultSet.getString("house_no");
+		this.lane = resultSet.getString("lane");
+		this.street = resultSet.getString("street");
+		this.town = resultSet.getString("town");
+		this.city = resultSet.getString("city");
+		this.province = resultSet.getString("province");
+		this.lane = resultSet.getString("lane");
+		this.email = resultSet.getString("email");
+		this.contactNo = resultSet.getString("contact_no");
+		this.extraEmail  = resultSet.getString("extra_email");
+		
+	}
 	
 	
 	

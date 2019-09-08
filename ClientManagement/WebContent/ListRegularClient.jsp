@@ -66,7 +66,7 @@
       
       <!-- delete buttons -->
       <td> 
-      		<form action = "delete" method = "post">
+      		<form action = "deleteRegularClient" method = "post">
       		<input type = "submit" name = "deleteClient" value = "Remove" class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light"> 
       		<input type= "hidden" name = "removeClient" value = <%=regularClient.getClientId()%>>
       	   </form> 
@@ -74,7 +74,7 @@
       </td>
       <!-- update buttons -->
       <td> 
-      	<form action = "update" method = "post">
+      	<form action = "updateRegularClient" method = "post">
       		<input type = "submit" name = "updateClient" value = "Edit" class="class="btn btn-default"> <i class="fas fa-magic mr-1"> </i>Edit</input>
       		<input type= "hidden" name = "editClient" value = <%=regularClient.getClientId()%>>
       	 </form> 
